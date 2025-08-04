@@ -1,0 +1,59 @@
+\chapter{Getting Started }
+\hypertarget{md_getting__started}{}\label{md_getting__started}\index{Getting Started@{Getting Started}}
+\label{md_getting__started_autotoc_md1}%
+\Hypertarget{md_getting__started_autotoc_md1}%
+\hypertarget{md_getting__started_autotoc_md2}{}\doxysection{\texorpdfstring{Configuration}{Configuration}}\label{md_getting__started_autotoc_md2}
+The task\textquotesingle{}s stack size and number of task must be set in {\itshape {\bfseries{cos\+\_\+config.\+h}}} file.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ TASKS\_NO\ \ \ \ \ \ \ \ \ \ \ 4\ \ \ \ \ }\textcolor{comment}{/*\ Maximum\ tasks\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ STACK\_SIZE\ \ \ \ \ \ \ \ \ \ 250\ \ \ }\textcolor{comment}{/*\ Stack\ size\ in\ word\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+{\itshape {\bfseries{Note}}}\+: {\ttfamily TASKS\+\_\+\+NO} should be exactly the same as the number of tasks added by the user. For example, if you add 3 tasks using {\ttfamily \doxylink{group___c_r_t_o_s___a_p_i_ga45cf45dc040c0e7bf028362b3fe0426b}{c\+\_\+os\+\_\+add\+\_\+task()}}, then {\ttfamily TASKS\+\_\+\+NO} must be set to 3.\hypertarget{md_getting__started_autotoc_md3}{}\doxysection{\texorpdfstring{Task and Stacks}{Task and Stacks}}\label{md_getting__started_autotoc_md3}
+{\ttfamily Stacks} and {\ttfamily Tasks} must be defined by user. Each task has the same stack memory at the moment.
+
+Since {\ttfamily \doxylink{group___c_r_t_o_s_ga744dae8b75c3b5b51b2780a2a167815c}{stack\+\_\+mem\+\_\+t}} ensure the 8-\/byte aligment, it must be used for stack memory definition.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Stack\ memory\ define\ */}}
+\DoxyCodeLine{\mbox{\hyperlink{group___c_r_t_o_s_ga744dae8b75c3b5b51b2780a2a167815c}{stack\_mem\_t}}\ stack\_1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Task\ define\ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ task\_1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Do\ stuff}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ never\ reach\ here}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_getting__started_autotoc_md4}{}\doxysection{\texorpdfstring{Scheduler}{Scheduler}}\label{md_getting__started_autotoc_md4}
+Scheduler starts with {\ttfamily c\+\_\+os\+\_\+start} function. Each task must be added in scheduler with corresponding stack memory.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}c\_os\_kernel.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Add\ tasks\ */}}
+\DoxyCodeLine{c\_os\_add\_task(task\_1,\ stack\_1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Add\ other\ tasks\ ...\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Start\ scheduler\ */}}
+\DoxyCodeLine{\mbox{\hyperlink{group___c_r_t_o_s___a_p_i_ga9a68bac64257661837b3d74cad5502b2}{c\_os\_start}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Never\ reach\ in\ here}}
+
+\end{DoxyCode}
+
+
+After starting scheduler, first task starts immediately, the {\ttfamily c\+\_\+os\+\_\+start} function never return. 

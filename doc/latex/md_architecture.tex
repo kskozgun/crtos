@@ -1,0 +1,43 @@
+\chapter{Architecture }
+\hypertarget{md_architecture}{}\label{md_architecture}\index{Architecture@{Architecture}}
+\label{md_architecture_autotoc_md5}%
+\Hypertarget{md_architecture_autotoc_md5}%
+
+
+The following figure illustrates the simple hierarchy of CRTOS {\bfseries{implementation}}. Kernel and hardware parts are tried to be {\bfseries{decoupled}} as much as possible.
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{inline_umlgraph_3}}
+\end{DoxyImageNoCaption}
+
+
+The following figure illustrates the working principle of CRTOS. {\bfseries{Sys\+Tick}} timer is used for calling the scheduler and Pend\+SV is used for context switching. The following table must be followed during interrupt initialization.
+
+
+
+{\itshape {\bfseries{IRQ Priorities}}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Interrupt  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Priority  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Purpose  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Note  }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Interrupt  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Priority  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Purpose  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Note  }\\\cline{1-4}
+\endhead
+Sys\+Tick  &High  &Task scheduling trigger  &Time slice is based on {\bfseries{Sys\+Tick}} configuration  \\\cline{1-4}
+Pend\+SV  &Lowest  &Context switching  &The function returns to {\bfseries{PSP}} \& {\bfseries{Thread Mode}}  \\\cline{1-4}
+\end{longtabu}
+
+
+The scheduler runs in {\itshape {\bfseries{Handler Mode}}} using {\itshape {\bfseries{MSP}}} stack pointer; tasks run in {\itshape {\bfseries{Thread Mode}}} using {\itshape {\bfseries{PSP}}} stack pointer.
+
+
+\begin{DoxyImage}
+\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{inline_umlgraph_4}
+\doxyfigcaption{Round Robin Scheduler State Diagram}
+\end{DoxyImage}
+ 

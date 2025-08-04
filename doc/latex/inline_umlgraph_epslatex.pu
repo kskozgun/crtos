@@ -1,0 +1,6 @@
+@startuml inline_umlgraph_3.eps
+!include crtos_arch.pu
+@enduml
+@startuml inline_umlgraph_4.eps
+!include round_robin_states.pu
+@enduml

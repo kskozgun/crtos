@@ -1,0 +1,32 @@
+\doxysection{cos\+\_\+types.\+h}
+\hypertarget{cos__types_8h_source}{}\label{cos__types_8h_source}\index{C:/Users/Guenyeli/Desktop/externals/playground/crtos/src/cos\_types.h@{C:/Users/Guenyeli/Desktop/externals/playground/crtos/src/cos\_types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ COS\_TYPES\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ COS\_TYPES\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}cos\_config.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a8919cebac3553fe32aa86543df91413b}{COS\_TASK\_READY}},\ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a28230fa48e166e6d4e11502da4bb5559}{COS\_TASK\_BLOCKED}},\ }
+\DoxyCodeLine{00031\ \}\ \mbox{\hyperlink{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}{cos\_task\_state\_t}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ uint32\_t\ \mbox{\hyperlink{group___c_r_t_o_s_ga744dae8b75c3b5b51b2780a2a167815c}{stack\_mem\_t}}[STACK\_SIZE]\ \_\_attribute\_\_((aligned(8)));}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t\ psp\_addr;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{group___c_r_t_o_s_a0f22124b65ecda089be03b93bf60cbcc}{block\_tick}};\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}{cos\_task\_state\_t}}\ \mbox{\hyperlink{group___c_r_t_o_s_ae4e4e0937d6550f3d4cef78b01bcf41c}{state}};\ \ }
+\DoxyCodeLine{00045\ \ \ \ \ void\ (*\mbox{\hyperlink{group___c_r_t_o_s_ac5df7b53af6ae840154b24b1fb2dd5b1}{task\_func}})(void);\ }
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{group___c_r_t_o_s_structtcb__t}{tcb\_t}};}
+\DoxyCodeLine{00047\ \ \textcolor{comment}{//\ End\ of\ CRTOS\_Types}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COS\_TYPES\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

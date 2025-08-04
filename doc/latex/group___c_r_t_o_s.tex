@@ -1,0 +1,87 @@
+\doxysection{Type Definitions }
+\hypertarget{group___c_r_t_o_s}{}\label{group___c_r_t_o_s}\index{Type Definitions@{Type Definitions}}
+
+
+This module defines the types used in Cordelia RTOS.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{group___c_r_t_o_s_structtcb__t}{tcb\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Task Control Block type definition.  \mbox{\hyperlink{group___c_r_t_o_s_structtcb__t}{More...}}\end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___c_r_t_o_s_ga744dae8b75c3b5b51b2780a2a167815c}\label{group___c_r_t_o_s_ga744dae8b75c3b5b51b2780a2a167815c} 
+typedef uint32\+\_\+t {\bfseries stack\+\_\+mem\+\_\+t}\mbox{[}STACK\+\_\+\+SIZE\mbox{]}
+\begin{DoxyCompactList}\small\item\em Stack memory type definition. It ensure that the stack is aligned to 8 bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}{cos\+\_\+task\+\_\+state\+\_\+t}} \{ \mbox{\hyperlink{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a8919cebac3553fe32aa86543df91413b}{COS\+\_\+\+TASK\+\_\+\+READY}}
+, \mbox{\hyperlink{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a28230fa48e166e6d4e11502da4bb5559}{COS\+\_\+\+TASK\+\_\+\+BLOCKED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Task state type definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This module defines the types used in Cordelia RTOS. 
+
+
+
+\doxysubsection{Data Structure Documentation}
+\index{tcb\_t@{tcb\_t}}\label{structtcb__t}
+\Hypertarget{group___c_r_t_o_s_structtcb__t}
+\doxysubsubsection{struct tcb\+\_\+t}
+Task Control Block type definition. \begin{DoxyFields}{Data Fields}
+\mbox{\Hypertarget{group___c_r_t_o_s_a0f22124b65ecda089be03b93bf60cbcc}\label{group___c_r_t_o_s_a0f22124b65ecda089be03b93bf60cbcc}} 
+uint32\_t&
+block\_tick&
+\texorpdfstring{$<$}{<} Process Stack Pointer Address \\
+\hline
+
+\mbox{\Hypertarget{group___c_r_t_o_s_ac0ae65e0a40c9bc7032ed65a7f1685d6}\label{group___c_r_t_o_s_ac0ae65e0a40c9bc7032ed65a7f1685d6}} 
+uint32\_t&
+psp\_addr&
+\\
+\hline
+
+\mbox{\Hypertarget{group___c_r_t_o_s_ae4e4e0937d6550f3d4cef78b01bcf41c}\label{group___c_r_t_o_s_ae4e4e0937d6550f3d4cef78b01bcf41c}} 
+\mbox{\hyperlink{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}{cos\_task\_state\_t}}&
+state&
+\texorpdfstring{$<$}{<} Number of ticks to block task \\
+\hline
+
+\mbox{\Hypertarget{group___c_r_t_o_s_ac5df7b53af6ae840154b24b1fb2dd5b1}\label{group___c_r_t_o_s_ac5df7b53af6ae840154b24b1fb2dd5b1}} 
+void(\texorpdfstring{$\ast$}{*})(void)&
+task\_func&
+\texorpdfstring{$<$}{<} Current state of the task \\
+\hline
+
+\end{DoxyFields}
+
+
+\label{doc-enum-members}
+\Hypertarget{group___c_r_t_o_s_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}\index{Type Definitions@{Type Definitions}!cos\_task\_state\_t@{cos\_task\_state\_t}}
+\index{cos\_task\_state\_t@{cos\_task\_state\_t}!Type Definitions@{Type Definitions}}
+\doxysubsubsection{\texorpdfstring{cos\_task\_state\_t}{cos\_task\_state\_t}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7} 
+enum \mbox{\hyperlink{group___c_r_t_o_s_gad7de45ac30e2accbbfb41a2eea0692f7}{cos\+\_\+task\+\_\+state\+\_\+t}}}
+
+
+
+Task state type definition. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COS\_TASK\_READY@{COS\_TASK\_READY}!Type Definitions@{Type Definitions}}\index{Type Definitions@{Type Definitions}!COS\_TASK\_READY@{COS\_TASK\_READY}}}\Hypertarget{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a8919cebac3553fe32aa86543df91413b}\label{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a8919cebac3553fe32aa86543df91413b} 
+COS\+\_\+\+TASK\+\_\+\+READY&Task is ready to run \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COS\_TASK\_BLOCKED@{COS\_TASK\_BLOCKED}!Type Definitions@{Type Definitions}}\index{Type Definitions@{Type Definitions}!COS\_TASK\_BLOCKED@{COS\_TASK\_BLOCKED}}}\Hypertarget{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a28230fa48e166e6d4e11502da4bb5559}\label{group___c_r_t_o_s_ggad7de45ac30e2accbbfb41a2eea0692f7a28230fa48e166e6d4e11502da4bb5559} 
+COS\+\_\+\+TASK\+\_\+\+BLOCKED&Task is blocked \\
+\hline
+
+\end{DoxyEnumFields}

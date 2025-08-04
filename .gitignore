@@ -1,0 +1,18 @@
+# Compiled files
+*.o
+*.hex
+*.elf
+
+# IDE files
+.vscode/
+
+
+# Build directories
+build/
+Debug/
+Release/
+
+# Backup files
+*~
+*.bak
+*.tmp

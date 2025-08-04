@@ -1,0 +1,110 @@
+\doxysection{CRTOS Function API }
+\hypertarget{group___c_r_t_o_s___a_p_i}{}\label{group___c_r_t_o_s___a_p_i}\index{CRTOS Function API@{CRTOS Function API}}
+
+
+Core RTOS kernel function interfaces.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___c_r_t_o_s___a_p_i_gae9fda4f31e01319a6f67526a2acd6ebb}{c\+\_\+os\+\_\+task\+\_\+create}} (\mbox{\hyperlink{group___c_r_t_o_s_structtcb__t}{tcb\+\_\+t}} \texorpdfstring{$\ast$}{*}tcb, void(\texorpdfstring{$\ast$}{*}task\+\_\+func)(void), uint32\+\_\+t psp\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em Creates a new task in the Cordelia RTOS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___c_r_t_o_s___a_p_i_gad8552b8953e71ea4038df9d0b8478997}{c\+\_\+os\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the kernel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___c_r_t_o_s___a_p_i_ga45cf45dc040c0e7bf028362b3fe0426b}{c\+\_\+os\+\_\+add\+\_\+task}} (void(\texorpdfstring{$\ast$}{*}task\+\_\+func)(void), uint32\+\_\+t psp\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em Adds a task to the kernel\textquotesingle{}s task list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___c_r_t_o_s___a_p_i_gaa144498c3baead52593f34163e5eec51}{c\+\_\+os\+\_\+task\+\_\+schedule}} (void)
+\begin{DoxyCompactList}\small\item\em Schedules the next task to run in the operating system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___c_r_t_o_s___a_p_i_ga9a68bac64257661837b3d74cad5502b2}{c\+\_\+os\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Start the RTOS scheduler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core RTOS kernel function interfaces. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{group___c_r_t_o_s___a_p_i_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___c_r_t_o_s___a_p_i_ga45cf45dc040c0e7bf028362b3fe0426b}\index{CRTOS Function API@{CRTOS Function API}!c\_os\_add\_task@{c\_os\_add\_task}}
+\index{c\_os\_add\_task@{c\_os\_add\_task}!CRTOS Function API@{CRTOS Function API}}
+\doxysubsubsection{\texorpdfstring{c\_os\_add\_task()}{c\_os\_add\_task()}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s___a_p_i_ga45cf45dc040c0e7bf028362b3fe0426b} 
+void c\+\_\+os\+\_\+add\+\_\+task (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{task\+\_\+func~}{)(void), }\item[{uint32\+\_\+t}]{psp\+\_\+addr}{}\end{DoxyParamCaption})}
+
+
+
+Adds a task to the kernel\textquotesingle{}s task list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+\_\+func} & Pointer to the task function. \\
+\hline
+{\em psp\+\_\+addr} & Process Stack Pointer Address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None
+\end{DoxyReturn}
+This function registers a new task with the kernel, allowing it to be scheduled and executed. The task function and PSP address should be defined by the user. Stack initialization is handled in the function. \Hypertarget{group___c_r_t_o_s___a_p_i_gad8552b8953e71ea4038df9d0b8478997}\index{CRTOS Function API@{CRTOS Function API}!c\_os\_init@{c\_os\_init}}
+\index{c\_os\_init@{c\_os\_init}!CRTOS Function API@{CRTOS Function API}}
+\doxysubsubsection{\texorpdfstring{c\_os\_init()}{c\_os\_init()}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s___a_p_i_gad8552b8953e71ea4038df9d0b8478997} 
+void c\+\_\+os\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the kernel. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\Hypertarget{group___c_r_t_o_s___a_p_i_ga9a68bac64257661837b3d74cad5502b2}\index{CRTOS Function API@{CRTOS Function API}!c\_os\_start@{c\_os\_start}}
+\index{c\_os\_start@{c\_os\_start}!CRTOS Function API@{CRTOS Function API}}
+\doxysubsubsection{\texorpdfstring{c\_os\_start()}{c\_os\_start()}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s___a_p_i_ga9a68bac64257661837b3d74cad5502b2} 
+void c\+\_\+os\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Start the RTOS scheduler. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\Hypertarget{group___c_r_t_o_s___a_p_i_gae9fda4f31e01319a6f67526a2acd6ebb}\index{CRTOS Function API@{CRTOS Function API}!c\_os\_task\_create@{c\_os\_task\_create}}
+\index{c\_os\_task\_create@{c\_os\_task\_create}!CRTOS Function API@{CRTOS Function API}}
+\doxysubsubsection{\texorpdfstring{c\_os\_task\_create()}{c\_os\_task\_create()}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s___a_p_i_gae9fda4f31e01319a6f67526a2acd6ebb} 
+void c\+\_\+os\+\_\+task\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___c_r_t_o_s_structtcb__t}{tcb\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tcb}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{task\+\_\+func~}{)(void), }\item[{uint32\+\_\+t}]{psp\+\_\+addr}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new task in the Cordelia RTOS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tcb} & Pointer to the Task Control Block (TCB) structure. \\
+\hline
+{\em task\+\_\+func} & Pointer to the task function. \\
+\hline
+{\em psp\+\_\+addr} & Process Stack Pointer Address.\\
+\hline
+\end{DoxyParams}
+This function initializes the task\textquotesingle{}s stack, assigns the task function and PSP address, and sets the initial state of the task. It should be called before the start the scheduler. \Hypertarget{group___c_r_t_o_s___a_p_i_gaa144498c3baead52593f34163e5eec51}\index{CRTOS Function API@{CRTOS Function API}!c\_os\_task\_schedule@{c\_os\_task\_schedule}}
+\index{c\_os\_task\_schedule@{c\_os\_task\_schedule}!CRTOS Function API@{CRTOS Function API}}
+\doxysubsubsection{\texorpdfstring{c\_os\_task\_schedule()}{c\_os\_task\_schedule()}}
+{\footnotesize\ttfamily \label{group___c_r_t_o_s___a_p_i_gaa144498c3baead52593f34163e5eec51} 
+void c\+\_\+os\+\_\+task\+\_\+schedule (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Schedules the next task to run in the operating system. 
+
+This function is responsible for selecting and switching to the next ready task in the cooperative operating system kernel. It manages task states and ensures that the highest-\/priority ready task is executed.
+
+\begin{DoxyNote}{Note}
+This function should be called periodically or when a task yields control to the scheduler. 
+\end{DoxyNote}

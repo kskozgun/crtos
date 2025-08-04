@@ -1,0 +1,42 @@
+@startuml Round Robin Scheduler State Diagram
+!theme plain
+title Round Robin Scheduler - Task States and Transitions
+
+skinparam state {
+  BackgroundColor LightBlue
+  BorderColor Navy
+  FontColor Navy
+}
+
+state "Scheduler" as Sched {
+  state "Task 1 Running" as T1_Run
+  state "Task 2 Running" as T2_Run
+  state "Context Switch" as Switch
+  
+  [*] -> T1_Run : System Start\nTask 1 selected
+  
+  T1_Run -> Switch : Time Slice Expired\n(System Tick)
+  Switch -> T2_Run : Save T1 Context\nRestore T2 Context
+  
+  T2_Run -> Switch : Time Slice Expired\n(System Tick)
+  Switch -> T1_Run : Save T2 Context\nRestore T1 Context
+}
+
+note top of Sched
+  **Round Robin Algorithm:**
+  1. Each task gets equal time slice (e.g., 10ms)
+  2. When time slice expires, Systick is pend. 
+  3. Enter System Tick Handler and pend context switch (MSP & Handler Mode)
+  4. Save current task context, restore next task context, return function.
+  5. Repeat cyclically
+
+  Note: This diagram assumes T1 and T2 are not blocked.
+end note
+
+note bottom of Sched
+  **Time Slice = 10ms**
+  **Tasks: Task1, Task2**
+  **Pattern: T1 → T2 → T1 → T2...**
+end note
+
+@enduml

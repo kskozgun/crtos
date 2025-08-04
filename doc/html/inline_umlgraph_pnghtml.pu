@@ -1,0 +1,6 @@
+@startuml inline_umlgraph_1.png
+!include crtos_arch.pu
+@enduml
+@startuml inline_umlgraph_2.png
+!include round_robin_states.pu
+@enduml

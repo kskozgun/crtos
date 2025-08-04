@@ -1,0 +1,64 @@
+@startuml CRTOS Round Robin Implementation
+!theme plain
+title CRTOS Round Robin Scheduler Implementation
+
+package "CRTOS Kernel" {
+  class "tcb_t" as TCB {
+    + uint32_t psp_addr
+    + uint32_t block_tick
+    + cos_task_state_t t_state
+    + void (*task_func)(void)
+    --
+    Task Control Structure
+  }
+  
+  class "Scheduler" as Sched {
+    - tcb_t task_list[] 
+    - uint32_t current_task
+    - uint32_t next_task
+    --
+    + c_os_init()
+    + c_os_add_task()
+    + c_os_start()
+  }
+  
+  class "Task Manager" as TaskMgr {
+    + c_os_create_task()
+    + c_os_task_yield()
+    + c_os_task_block_tick()
+  }
+}
+
+package "Target Hardware" {
+  class "ARM Cortex M" as CortexM {
+    + extern current_task
+    + extern next_task
+    + extern task_list
+    --
+    + __enter_context_switch_irq()
+    + __start_scheduler()
+    + __context_switch
+  }
+}
+
+package "User Tasks" {
+  class "Task 1" as Task1 {
+    + task1_function()
+    + stack_mem_t stack_1
+  }
+  
+  class "Task 2" as Task2 {
+    + task2_function()
+    + stack_mem_t stack_2
+  }
+}
+
+' Relationships
+TCB ||--o{ Sched : manages
+Sched --> TaskMgr : uses
+CortexM --> Sched : triggers
+Task1 --> TCB : referenced by
+Task2 --> TCB : referenced by
+
+
+@enduml
