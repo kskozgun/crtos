@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![icon](doc\diagrams\logo.png)
+![icon](doc/diagrams/logo.png)
 
 </div>
 
